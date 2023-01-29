@@ -24,33 +24,33 @@ Colcon extensions:
 
 ## Tasks
 
-| Task (clickable)                                                             | Description                                                      |
-|:-----------------------------------------------------------------------------|:-----------------------------------------------------------------|
-| **Colcon**                                                                   |                                                                  |
-| [`colcon: build`](.vscode/tasks.json#L12)                                    | build workspace                                                  |
-| [`colcon: build --packages-select`](.vscode/tasks.json#L46)                  | Build only single package from workspace                         |
-| [`colcon: build --clean-first`](.vscode/tasks.json#L84)                      | Remove CMake cache and build workspace                           |
-| [`colcon: build --packages-select --clean-first`](.vscode/tasks.json#L120)   | Remove CMake cache and build only single package from workspace  |
-| [`colcon: build --packages-up-to`](.vscode/tasks.json#L160)                  | Build selected package including its dependencies                |
-| [`colcon: build --packages-above`](.vscode/tasks.json#L198)                  | Rebuild packages which depend on a specific package              |
-| [`colcon: build --packages-above-and-dependencies`](.vscode/tasks.json#L236) | Rebuild packages and its recursive dependencies                  |
-| [`colcon: test`](.vscode/tasks.json#L276)                                    | Test workspace                                                   |
-| [`colcon: test --packages-select`](.vscode/tasks.json#L304)                  | Test only single package from workspace                          |
-| [`colcon: clean`](.vscode/tasks.json#L338)                                   | Clean workspace                                                  |
-| [`colcon: clean --packages-select`](.vscode/tasks.json#L349)                 | Clean package workspaces                                         |
-| **ROS2**                                                                     |                                                                  |
-| [`ros2: Create ament_cmake package`](.vscode/tasks.json#L366)                | Create a new ROS C++ package from a template                     |
-| [`ros2: Create ament_python package`](.vscode/tasks.json#L384)               | Create a new ROS Python package from a template                  |
-| [`rqt_graph`](.vscode/tasks.json#L402)                                       | Run rqt_grph tool                                                |
-| **Linter**                                                                   |                                                                  |
-| [`uncrustify`](.vscode/tasks.json#L413)                                      | Lint files with uncrustify                                       |
-| [`cpplint`](.vscode/tasks.json#L439)                                         | Lint files with cpplint                                          |
-| [`cppcheck`](.vscode/tasks.json#L454)                                        | Run static code checker cppcheck                                 |
-| [`lint_cmake`](.vscode/tasks.json#L474)                                      | Run lint on cmake files                                          |
-| [`flake8`](.vscode/tasks.json#L489)                                          | Run flake8 on Python files                                       |
-| [`pep257`](.vscode/tasks.json#L504)                                          | Run pep257 on python files                                       |
-| [`xmllint`](.vscode/tasks.json#L519)                                         | Run xmllint on xml files                                         |
-| [`lint all`](.vscode/tasks.json#L534)                                        | Run all linters                                                  |
+| Task (clickable)                                                                  | Description                                                      |
+|:----------------------------------------------------------------------------------|:-----------------------------------------------------------------|
+| **Colcon**                                                                        |                                                                  |
+| [`colcon: build`](.vscode/tasks.json#L12:L43)                                     | build workspace                                                  |
+| [`colcon: build --packages-select`](.vscode/tasks.json#L46:L81)                   | Build only single package from workspace                         |
+| [`colcon: build --clean-first`](.vscode/tasks.json#L84:L117)                      | Remove CMake cache and build workspace                           |
+| [`colcon: build --packages-select --clean-first`](.vscode/tasks.json#L120:L157)   | Remove CMake cache and build only single package from workspace  |
+| [`colcon: build --packages-up-to`](.vscode/tasks.json#L160:L195)                  | Build selected package including its dependencies                |
+| [`colcon: build --packages-above`](.vscode/tasks.json#L198:L233)                  | Rebuild packages which depend on a specific package              |
+| [`colcon: build --packages-above-and-dependencies`](.vscode/tasks.json#L236:L271) | Rebuild packages and its recursive dependencies                  |
+| [`colcon: test`](.vscode/tasks.json#L276:L301)                                    | Test workspace                                                   |
+| [`colcon: test --packages-select`](.vscode/tasks.json#L304:L333)                  | Test only single package from workspace                          |
+| [`colcon: clean`](.vscode/tasks.json#L338:L346)                                   | Clean workspace                                                  |
+| [`colcon: clean --packages-select`](.vscode/tasks.json#L349:L361)                 | Clean package workspaces                                         |
+| **ROS2**                                                                          |                                                                  |
+| [`ros2: Create ament_cmake package`](.vscode/tasks.json#L366:L381)                | Create a new ROS C++ package from a template                     |
+| [`ros2: Create ament_python package`](.vscode/tasks.json#L384:L399)               | Create a new ROS Python package from a template                  |
+| [`rqt_graph`](.vscode/tasks.json#L402:L406)                                       | Run rqt_grph tool                                                |
+| **Linter**                                                                        |                                                                  |
+| [`uncrustify`](.vscode/tasks.json#L413:L436)                                      | Lint files with uncrustify                                       |
+| [`cpplint`](.vscode/tasks.json#L439:L451)                                         | Lint files with cpplint                                          |
+| [`cppcheck`](.vscode/tasks.json#L454:L471)                                        | Run static code checker cppcheck                                 |
+| [`lint_cmake`](.vscode/tasks.json#L474:L486)                                      | Run lint on cmake files                                          |
+| [`flake8`](.vscode/tasks.json#L489:L501)                                          | Run flake8 on Python files                                       |
+| [`pep257`](.vscode/tasks.json#L504:L516)                                          | Run pep257 on python files                                       |
+| [`xmllint`](.vscode/tasks.json#L519:L531)                                         | Run xmllint on xml files                                         |
+| [`lint all`](.vscode/tasks.json#L534:L545)                                        | Run all linters                                                  |
 
 ## References
 
