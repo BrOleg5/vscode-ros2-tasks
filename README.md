@@ -27,7 +27,7 @@ Colcon extensions:
 | Task (clickable)                                                                  | Description                                                      |
 |:----------------------------------------------------------------------------------|:-----------------------------------------------------------------|
 | **Colcon**                                                                        |                                                                  |
-| [`colcon: build`](.vscode/tasks.json#L12:L43)                                     | build workspace                                                  |
+| [`colcon: build`](.vscode/tasks.json#L12:L43)                                     | Build workspace                                                  |
 | [`colcon: build --packages-select`](.vscode/tasks.json#L46:L81)                   | Build only single package from workspace                         |
 | [`colcon: build --clean-first`](.vscode/tasks.json#L84:L117)                      | Remove CMake cache and build workspace                           |
 | [`colcon: build --packages-select --clean-first`](.vscode/tasks.json#L120:L157)   | Remove CMake cache and build only single package from workspace  |
@@ -51,6 +51,11 @@ Colcon extensions:
 | [`pep257`](.vscode/tasks.json#L504:L516)                                          | Run pep257 on python files                                       |
 | [`xmllint`](.vscode/tasks.json#L519:L531)                                         | Run xmllint on xml files                                         |
 | [`lint all`](.vscode/tasks.json#L534:L545)                                        | Run all linters                                                  |
+
+## Usage
+
+Build tasks run with command "Tasks: Run Build Task" (default hotkey `Ctrl+Shift+B`).
+All tasks (include build) run with command "Tasks: Run Tasks" (default hotkey is not defined). You may set convenient hotkey, e.g. `Alt+T`.
 
 ## References
 
