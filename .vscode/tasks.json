@@ -1,0 +1,587 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+      "tasks": [
+        ////////////////////////////////////////////////////////////
+        // Colcon
+        ////////////////////////////////////////////////////////////
+
+        // Colcon build
+        {
+            "label": "colcon: build",
+            "detail": "Build workspace",
+            "type": "colcon",
+            "windows": {
+                "args": [
+                    "build",
+                    "--merge-install",
+                    "--symlink-install",
+                    "--event-handlers",
+                    "console_cohesion+",
+                    "--base-paths",
+                    "${workspaceFolder}",
+                    "--cmake-args",
+                    "-DCMAKE_BUILD_TYPE=${input:build_conf}"
+                ]
+            },
+            "linux": {
+                "args": [
+                    "build",
+                    "--symlink-install",
+                    "--event-handlers",
+                    "console_cohesion+",
+                    "--base-paths",
+                    "${workspaceFolder}",
+                    "--cmake-args",
+                    "-DCMAKE_BUILD_TYPE=${input:build_conf}"
+                ]
+            },
+            "problemMatcher": [
+                "$catkin-gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "colcon: build --packages-select",
+            "detail": "Build only single package from workspace",
+            "type": "colcon",
+            "windows": {
+                "args": [
+                    "build",
+                    "--packages-select",
+                    "${input:exist_package}",
+                    "--merge-install",
+                    "--symlink-install",
+                    "--event-handlers",
+                    "console_cohesion+",
+                    "--base-paths",
+                    "${workspaceFolder}",
+                    "--cmake-args",
+                    "-DCMAKE_BUILD_TYPE=${input:build_conf}"
+                ]
+            },
+            "linux": {
+                "args": [
+                    "build",
+                    "--packages-select",
+                    "${input:exist_package}",
+                    "--symlink-install",
+                    "--event-handlers",
+                    "console_cohesion+",
+                    "--base-paths",
+                    "${workspaceFolder}",
+                    "--cmake-args",
+                    "-DCMAKE_BUILD_TYPE=${input:build_conf}"
+                ]
+            },
+            "problemMatcher": [
+                "$catkin-gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "colcon: build --clean-first",
+            "detail": "Remove CMake cache and build workspace",
+            "type": "colcon",
+            "windows": {
+                "args": [
+                    "build",
+                    "--merge-install",
+                    "--symlink-install",
+                    "--event-handlers",
+                    "console_cohesion+",
+                    "--base-paths",
+                    "${workspaceFolder}",
+                    "--cmake-args",
+                    "-DCMAKE_BUILD_TYPE=${input:build_conf}",
+                    "--cmake-clean-first"
+                ]
+            },
+            "linux": {
+                "args": [
+                    "build",
+                    "--symlink-install",
+                    "--event-handlers",
+                    "console_cohesion+",
+                    "--base-paths",
+                    "${workspaceFolder}",
+                    "--cmake-args",
+                    "-DCMAKE_BUILD_TYPE=${input:build_conf}",
+                    "--cmake-clean-first"
+                ]
+            },
+            "problemMatcher": [
+                "$catkin-gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "colcon: build --packages-select --clean-first",
+            "detail": "Remove CMake cache and build only single package from workspace",
+            "type": "colcon",
+            "windows": {
+                "args": [
+                    "build",
+                    "--packages-select",
+                    "${input:exist_package}",
+                    "--merge-install",
+                    "--symlink-install",
+                    "--event-handlers",
+                    "console_cohesion+",
+                    "--base-paths",
+                    "${workspaceFolder}",
+                    "--cmake-args",
+                    "-DCMAKE_BUILD_TYPE=${input:build_conf}",
+                    "--cmake-clean-first"
+                ]
+            },
+            "linux": {
+                "args": [
+                    "build",
+                    "--packages-select",
+                    "${input:exist_package}",
+                    "--symlink-install",
+                    "--event-handlers",
+                    "console_cohesion+",
+                    "--base-paths",
+                    "${workspaceFolder}",
+                    "--cmake-args",
+                    "-DCMAKE_BUILD_TYPE=${input:build_conf}",
+                    "--cmake-clean-first"
+                ]
+            },
+            "problemMatcher": [
+                "$catkin-gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "colcon: build --packages-up-to",
+            "detail": "Build selected package including its dependencies",
+            "type": "colcon",
+            "windows": {
+                "args": [
+                    "build",
+                    "--packages-up-to",
+                    "${input:exist_package}",
+                    "--merge-install",
+                    "--symlink-install",
+                    "--event-handlers",
+                    "console_cohesion+",
+                    "--base-paths",
+                    "${workspaceFolder}",
+                    "--cmake-args",
+                    "-DCMAKE_BUILD_TYPE=${input:build_conf}"
+                ]
+            },
+            "linux": {
+                "args": [
+                    "build",
+                    "--packages-up-to",
+                    "${input:exist_package}",
+                    "--symlink-install",
+                    "--event-handlers",
+                    "console_cohesion+",
+                    "--base-paths",
+                    "${workspaceFolder}",
+                    "--cmake-args",
+                    "-DCMAKE_BUILD_TYPE=${input:build_conf}"
+                ]
+            },
+            "problemMatcher": [
+                "$catkin-gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "colcon: build --packages-above",
+            "detail": "Rebuild packages which depend on a specific package",
+            "type": "colcon",
+            "windows": {
+                "args": [
+                    "build",
+                    "--packages-above",
+                    "${input:exist_package}",
+                    "--merge-install",
+                    "--symlink-install",
+                    "--event-handlers",
+                    "console_cohesion+",
+                    "--base-paths",
+                    "${workspaceFolder}",
+                    "--cmake-args",
+                    "-DCMAKE_BUILD_TYPE=${input:build_conf}"
+                ]
+            },
+            "linux": {
+                "args": [
+                    "build",
+                    "--packages-above",
+                    "${input:exist_package}",
+                    "--symlink-install",
+                    "--event-handlers",
+                    "console_cohesion+",
+                    "--base-paths",
+                    "${workspaceFolder}",
+                    "--cmake-args",
+                    "-DCMAKE_BUILD_TYPE=${input:build_conf}"
+                ]
+            },
+            "problemMatcher": [
+                "$catkin-gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "colcon: build --packages-above-and-dependencies",
+            "detail": "Rebuild packages and its reqursive dependencies",
+            "type": "colcon",
+            "windows": {
+                "args": [
+                    "build",
+                    "--packages-above-and-dependencies",
+                    "${input:exist_package}",
+                    "--merge-install",
+                    "--symlink-install",
+                    "--event-handlers",
+                    "console_cohesion+",
+                    "--base-paths",
+                    "${workspaceFolder}",
+                    "--cmake-args",
+                    "-DCMAKE_BUILD_TYPE=${input:build_conf}"
+                ]
+            },
+            "linux": {
+                "args": [
+                    "build",
+                    "--packages-above-and-dependencies",
+                    "${input:exist_package}",
+                    "--symlink-install",
+                    "--event-handlers",
+                    "console_cohesion+",
+                    "--base-paths",
+                    "${workspaceFolder}",
+                    "--cmake-args",
+                    "-DCMAKE_BUILD_TYPE=${input:build_conf}"
+                ]
+            },
+            "problemMatcher": [
+                "$catkin-gcc"
+            ],
+            "group": "build"
+        },
+
+        // Colcon test
+        {
+            "label": "colcon: test",
+            "detail": "Test workspace",
+            "type": "colcon",
+            "windows": {
+                "args": [
+                    "test",
+                    "--merge-install",
+                    "--event-handlers",
+                    "console_cohesion+",
+                    "--base-paths",
+                    "${workspaceFolder}"
+                ]
+            },
+            "linux": {
+                "args": [
+                    "test",
+                    "--event-handlers",
+                    "console_cohesion+",
+                    "--base-paths",
+                    "${workspaceFolder}",
+                ]
+            },
+            "problemMatcher": [
+                "$catkin-gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "colcon: test --packages-select",
+            "detail": "Test only single package from workspace",
+            "type": "colcon",
+            "windows": {
+                "args": [
+                    "test",
+                    "--packages-select",
+                    "${input:exist_package}",
+                    "--merge-install",
+                    "--event-handlers",
+                    "console_cohesion+",
+                    "--base-paths",
+                    "${workspaceFolder}"
+                ]
+            },
+            "linux": {
+                "args": [
+                    "test",
+                    "--packages-select",
+                    "${input:exist_package}",
+                    "--event-handlers",
+                    "console_cohesion+",
+                    "--base-paths",
+                    "${workspaceFolder}"
+                ]
+            },
+            "problemMatcher": [
+                "$catkin-gcc"
+            ],
+            "group": "build"
+        },
+
+        // Colcon clean
+        {
+            "label": "colcon: clean",
+            "detail": "Clean workspace",
+            "type": "colcon",
+            "args": [
+                "clean", 
+                "workspace",
+                "-y"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "colcon: clean --packages-select",
+            "detail": "Clean package workspaces",
+            "type": "colcon",
+            "args": [
+                "clean", 
+                "packages",
+                "--packages-select",
+                "${input:exist_package}",
+                "-y"
+            ],
+            "problemMatcher": []
+        },
+
+        ////////////////////////////////////////////////////////////
+        // ROS2
+        ////////////////////////////////////////////////////////////
+        {
+            "label": "ros2: Create ament_cmake package",
+            "detail": "Create a new ROS C++ package from a template",
+            "type": "shell",
+            "command": "ros2",
+            "args": [
+                "pkg",
+                "create",
+                "--destination-directory",
+                "src",
+                "--build-type",
+                "ament_cmake",
+                "${input:new_package}",
+                "--dependencies",
+                "rclcpp"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "ros2: Create ament_python package",
+            "detail": "Create a new ROS Python package from a template",
+            "type": "shell",
+            "command": "ros2",
+            "args": [
+                "pkg",
+                "create",
+                "--destination-directory",
+                "src",
+                "--build-type",
+                "ament_python",
+                "${input:new_package}",
+                "--dependencies",
+                "rclpy"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "rqt_graph",
+            "detail": "Run rqt_grph tool",
+            "type": "shell",
+            "command": "rqt_graph",
+            "problemMatcher": []
+        },
+
+        ////////////////////////////////////////////////////////////
+        // Linters
+        ////////////////////////////////////////////////////////////
+        {
+            "label": "uncrustify",
+            "detail": "Lint files with uncrustify",
+            "type": "shell",
+            "command": "ament_uncrustify src/",
+            "presentation": {
+                "panel": "dedicated",
+                "reveal": "silent",
+                "clear": true
+            },
+            "problemMatcher": [
+                {
+                    "owner": "uncrustify",
+                    "source": "uncrustify",
+                    "fileLocation": "relative",
+                    "pattern": [
+                        {
+                            "regexp": "^(.*)'(.*)':",
+                            "kind": "file",
+                            "file": 2,
+                            "message": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "cpplint",
+            "detail": "Lint files with cpplint",
+            "type": "ament",
+            "task": "cpplint",
+            "path": "src/",
+            "problemMatcher": [
+                "$ament_cpplint"
+            ],
+            "presentation": {
+                "panel": "dedicated",
+                "reveal": "silent",
+                "clear": true
+            }
+        },
+        {
+            "label": "cppcheck",
+            "detail": "Run static code checker cppcheck",
+            "type": "ament",
+            "task": "cppcheck",
+            "path": "src/",
+            "problemMatcher": [
+                "$ament_cppcheck"
+            ],
+            "presentation": {
+                "panel": "dedicated",
+                "reveal": "silent",
+                "clear": true
+            },
+            "options": {
+                "env": {
+                    "AMENT_CPPCHECK_ALLOW_SLOW_VERSIONS": "1"
+                }
+            }
+        },
+        {
+            "label": "lint_cmake",
+            "detail": "Run lint on cmake files",
+            "type": "ament",
+            "task": "lint_cmake",
+            "path": "src/",
+            "problemMatcher": [
+                "$ament_lint_cmake"
+            ],
+            "presentation": {
+                "panel": "dedicated",
+                "reveal": "silent",
+                "clear": true
+            }
+        },
+        {
+            "label": "flake8",
+            "detail": "Run flake8 on python files",
+            "type": "ament",
+            "task": "flake8",
+            "path": "src/",
+            "problemMatcher": [
+                "$ament_flake8"
+            ],
+            "presentation": {
+                "panel": "dedicated",
+                "reveal": "silent",
+                "clear": true
+            }
+        },
+        {
+            "label": "pep257",
+            "detail": "Run pep257 on python files",
+            "type": "ament",
+            "task": "pep257",
+            "path": "src/",
+            "problemMatcher": [
+                "$ament_pep257"
+            ],
+            "presentation": {
+                "panel": "dedicated",
+                "reveal": "silent",
+                "clear": true
+            }
+        },
+        {
+            "label": "xmllint",
+            "detail": "Run xmllint on xml files",
+            "type": "ament",
+            "task": "xmllint",
+            "path": "src/",
+            "problemMatcher": [
+                "$ament_xmllint"
+            ],
+            "presentation": {
+                "panel": "dedicated",
+                "reveal": "silent",
+                "clear": true
+            }
+        },
+        {
+            "label": "lint all",
+            "detail": "Run all linters",
+            "dependsOn": [
+                "cppcheck",
+                "cpplint",
+                "flake8",
+                "lint_cmake",
+                "pep257",
+                "xmllint",
+                "uncrustify"
+            ],
+            "problemMatcher": []
+        },
+        // Automatic fix files with uncrustify
+        // It is not recommended to use
+        // {
+        //     "label": "fix",
+        //     "detail": "Reformat files with uncrustify.",
+        //     "type": "shell",
+        //     "command": "ament_uncrustify",
+        //     "args": [
+        //         "--reformat src/"
+        //     ],
+        //     "problemMatcher": []
+        // },
+    ],
+    "inputs": [
+        {
+            "id": "build_conf",
+            "type": "pickString",
+            "options": [
+                "Release",
+                "Debug",
+                "RelWithDebInfo"
+            ],
+            "default": "RelWithDebInfo",
+            "description": "Build configuration"
+        },
+        {
+            "id": "new_package",
+            "type": "promptString",
+            "description": "Name of new ROS package"
+        },
+        {
+            "id": "exist_package",
+            "type": "command",
+            "command": "shellCommand.execute",
+            "args": {
+                "command": "colcon list --names-only",
+                "cwd": "${workspaceFolder}"
+            }
+        }
+    ]
+}
