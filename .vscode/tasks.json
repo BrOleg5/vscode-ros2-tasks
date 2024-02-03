@@ -407,6 +407,21 @@
             ],
             "problemMatcher": []
         },
+        //////////////
+        // ROS2 Tools
+        //////////////
+        {
+            "label": "ros2 topic echo",
+            "detail": "Show messages published on the topic",
+            "type": "shell",
+            "command": "ros2",
+            "args": [
+                "topic",
+                "echo",
+                "${input:topic_name}"
+            ],
+            "problemMatcher": []
+        },
         {
             "label": "rqt_graph",
             "detail": "Run rqt_grph tool",
@@ -414,7 +429,46 @@
             "command": "rqt_graph",
             "problemMatcher": []
         },
-
+        {
+            "label": "ros2 tf tree",
+            "detail": "Show tf tree",
+            "type": "shell",
+            "command": "ros2",
+            "args": [
+                "run",
+                "tf2_tools",
+                "view_frames"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "ros2 tf2_echo",
+            "detail": "Report the transform between any two frames broadcast over ROS2",
+            "type": "shell",
+            "command": "ros2",
+            "args": [
+                "run",
+                "tf2_ros",
+                "tf2_echo",
+                "${input:source_frame}",
+                "${input:target_frame}"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "ros2 tf2_monitor",
+            "detail": "Get statistics on the timing of transformation between any two frames",
+            "type": "shell",
+            "command": "ros2",
+            "args": [
+                "run",
+                "tf2_ros",
+                "tf2_monitor",
+                "${input:source_frame}",
+                "${input:target_frame}"
+            ],
+            "problemMatcher": []
+        },
         ////////////////////////////////////////////////////////////
         // Linters
         ////////////////////////////////////////////////////////////
@@ -591,6 +645,25 @@
                 "command": "colcon list --names-only",
                 "cwd": "${workspaceFolder}"
             }
+        },
+        {
+            "id": "topic_name",
+            "type": "command",
+            "command": "shellCommand.execute",
+            "args": {
+                "command": "ros2 topic list",
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "id": "source_frame",
+            "type": "promptString",
+            "description": "Name of source tf2 frame"
+        },
+        {
+            "id": "target_frame",
+            "type": "promptString",
+            "description": "Name of target tf2 frame"
         }
     ]
 }
